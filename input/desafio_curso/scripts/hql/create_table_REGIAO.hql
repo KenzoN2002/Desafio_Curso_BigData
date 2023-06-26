@@ -1,6 +1,6 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS ${TARGET_DATABASE}.${TARGET_TABLE_EXTERNAL} ( 
-    Region_Code,
-    Region_Name
+    Region_Code string,
+    Region_Name string
     )
 COMMENT 'Tabela de CLIENTES'
 ROW FORMAT DELIMITED
@@ -11,8 +11,8 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 
 
 CREATE TABLE IF NOT EXISTS ${TARGET_DATABASE}.${TARGET_TABLE_GERENCIADA} (
-    Region_Code,
-    Region_Name
+    Region_Code string,
+    Region_Name string
 )
 PARTITIONED BY (DT_FOTO STRING)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 

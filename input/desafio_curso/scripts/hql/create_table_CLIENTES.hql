@@ -22,9 +22,9 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 
 CREATE TABLE IF NOT EXISTS ${TARGET_DATABASE}.${TARGET_TABLE_GERENCIADA} (
     Address_Number string,
-    Business Family string,
+    Business_Family string,
     Business_Unit string,
-    Customer_string,
+    Customer string,
     CustomerKey string,
     Customer_Type string,
     Division string,
@@ -48,17 +48,17 @@ INSERT OVERWRITE TABLE
     ${TARGET_DATABASE}.${TARGET_TABLE_GERENCIADA}
 PARTITION(DT_FOTO) 
 SELECT
-    Address_Number string,
-    Business Family string,
-    Business_Unit string,
-    Customer_string,
-    CustomerKey string,
-    Customer_Type string,
-    Division string,
-    Line_Business string,
-    Phone string,
-    Region_Code string,
-    Regional_Sales_Mgr string,
-    Search_Type string,
+    Address_Number,
+    Business_Family,
+    Business_Unit,
+    Customer,
+    CustomerKey,
+    Customer_Type,
+    Division,
+    Line_Business,
+    Phone,
+    Region_Code,
+    Regional_Sales_Mgr,
+    Search_Type,
 	${PARTICAO} as DT_FOTO
 FROM ${TARGET_DATABASE}.${TARGET_TABLE_EXTERNAL}
